@@ -4,6 +4,8 @@
 1. brew install ubuntu/microk8s/microk8sでmicrok8sのインストーラーをDL
 2. microk8s installでmicrok8sをインストール
 3. microk8s enable dns && microk8s stop && microk8s start microk8sを開始する
+
+### argocd install
 4. microk8s kubectl create namespace argocdでnamespaceを作成する
 5. microk8s kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml でargocdをインストール
 6. [brew install argocd](https://kostis-argo-cd.readthedocs.io/en/refresh-docs/getting_started/install_cli/#install-on-macos-darwin)からargocd cliをインストール
@@ -14,6 +16,7 @@
 9. argocd管理画面にログインしてパスワードを変更
 10. microk8s kubectl config set-context --current --namespace=argocdでnamespaceをset
 11. ~/.kube/configを~/.microk8s/configに置き換える
+### application create
 12. argocd login localhost:8080でログインする
 13. argocd app create guestbook --repo https://github.com/tsubauaaa/argocd-getting-start.git --path guestbook --dest-server https://kubernetes.default.svc --dest-namespace default --port-forward-namespace argocdでアプリを作成する
 14. argocd app get guestbookで作成したアプリを確認する
