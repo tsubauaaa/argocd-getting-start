@@ -15,7 +15,7 @@
 10. `microk8s kubectl get secret --namespace argocd argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 --decode ; echo` でadminの初期パスワードを取得
 11. argocd管理画面にログインしてパスワードを変更
 12. `microk8s kubectl config set-context --current --namespace=argocd` でnamespaceをset
-13. ~/.kube/configを~/.microk8s/configに置き換える
+13. $HOME/.kube/configを $HOME/.microk8s/configに置き換える
 
 ### application create
 14. `argocd login localhost:8080` でログインする
