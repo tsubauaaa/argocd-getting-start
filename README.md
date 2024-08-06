@@ -24,6 +24,11 @@
 15. argocd app sync guestbookでアプリを同期する
 
 ### convert Deployment to Rollout
-16. [Convert Deployment to Rollout](https://argoproj.github.io/argo-rollouts/migrating/#convert-deployment-to-rollout)からアプリのマニフェストを編集する
-17. 
+16. [Convert Deployment to Rollout](https://argoproj.github.io/argo-rollouts/migrating/#convert-deployment-to-rollout)からアプリのマニフェストを編集してgit pushする
+17. kubectl create namespace argo-rolloutsにてnamespaceを作成する
+18. kubectl apply -n argo-rollouts -f https://github.com/argoproj/argo-rollouts/releases/latest/download/install.yamlにてrolloutsをインストールする
+19. [Kubectl Plugin Installation](https://argoproj.github.io/argo-rollouts/installation/#kubectl-plugin-installation)からkubectl argo rolloutsをインストールする
+20. kubectl argo rollouts dashboard --namespace defaultでargo rollouts dashboardを起動する
+21. argocd管理画面からpruneありのsyncを行う
+22. http://localhost:3100/rolloutsにアクセスしてargo rollouts管理画面を表示する
 
