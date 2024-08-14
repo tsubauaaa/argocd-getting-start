@@ -27,7 +27,7 @@
 18. [Convert Deployment to Rollout](https://argoproj.github.io/argo-rollouts/migrating/#convert-deployment-to-rollout)からアプリのマニフェストを編集してgit pushする
 19. `kubectl create namespace argo-rollouts`にてnamespaceを作成する
 20. `kubectl apply -n argo-rollouts -f https://github.com/argoproj/argo-rollouts/releases/latest/download/install.yaml` にてrolloutsをインストールする
-21. [Kubectl Plugin Installation](https://argoproj.github.io/argo-rollouts/installation/#kubectl-plugin-installation)からkubectl argo rolloutsをインストールする
+21. [Kubectl Plugin Installation](https://argoproj.github.io/argo-rollouts/installation/#kubectl-plugin-installation)からkubectl pluginをインストールする
 22. `kubectl argo rollouts dashboard --namespace default` でargo rollouts dashboardを起動する
 23. argocd管理画面からpruneありのsyncを行う
 24. http://localhost:3100/rollouts にアクセスしてargo rollouts管理画面を表示する

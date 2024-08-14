@@ -16,12 +16,18 @@ spec:
         app: guestbook-ui
     spec:
       containers:
-      - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
+      # - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
+      - image: nginx:latest
         name: guestbook-ui
         ports:
         - containerPort: 80
   strategy:
     canary:                        # Changed from rollingUpdate or recreate
       steps:
-      - setWeight: 20
-      - pause: {}
+        - setWeight: 25
+        - pause: {}
+        - setWeight: 50
+        - pause: {}
+        - setWeight: 75
+        - pause: {}
+        - setWeight: 100
