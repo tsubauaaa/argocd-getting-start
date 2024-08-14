@@ -23,7 +23,7 @@ spec:
         - containerPort: 80
   strategy:
     canary:                        # Changed from rollingUpdate or recreate
-      maxSurge: 200%                # 新バージョンのPod数を旧バージョンのPod数に追加（最大で倍のPod数が稼働）
+      maxSurge: 100%                # 新バージョンのPod数を旧バージョンのPod数に追加（最大で倍のPod数が稼働）
       maxUnavailable: 0             # 旧バージョンのPod数は減らさない
       steps:
         - setWeight: 25

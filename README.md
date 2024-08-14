@@ -34,6 +34,7 @@
 
 ### canary release
 25. アプリのマニフェストのimageを編集してgit pushする
-26. argocd管理画面からsyncを行う
 26. `kubectl argo rollouts get rollout guestbook-ui --namespace default --watch` でカナリアリリースの進行状況を監視する
-27. アプリのマニフェストのstrategyにpauseがあればpauseごと `kubectl argo rollouts promote guestbook-ui -n default` でpromoteしていく。`pause: { duration: 10s }` の場合には、10秒まってpromoteされる。
+27. argocd管理画面からsyncを行う
+28. アプリのマニフェストのstrategyにpauseがあればpauseごと `kubectl argo rollouts promote guestbook-ui -n default` でpromoteしていく。`pause: { duration: 10s }` の場合には、10秒まってpromoteされる。
+29. `maxSurge: 100%`, `maxUnavailable: 0` としてもカナリアリリース中に旧バージョンのPodが削除されてしまう。
