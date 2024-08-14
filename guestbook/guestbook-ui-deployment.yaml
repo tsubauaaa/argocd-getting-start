@@ -33,4 +33,4 @@ spec:
         - setWeight: 75
         - pause: { duration: 10s }
         - setWeight: 100
-        - setCanaryScale: 100%
+        - setCanaryScale: weight: 100
