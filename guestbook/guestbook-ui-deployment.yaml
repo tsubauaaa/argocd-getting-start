@@ -5,7 +5,7 @@ kind: Rollout                     # Changed from Deployment
 metadata:
   name: guestbook-ui
 spec:
-  replicas: 1
+  replicas: 4
   revisionHistoryLimit: 3
   selector:
     matchLabels:

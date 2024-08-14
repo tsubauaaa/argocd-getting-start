@@ -33,3 +33,5 @@
 24. http://localhost:3100/rollouts にアクセスしてargo rollouts管理画面を表示する
 
 ### canary release
+25. アプリのマニフェストのimageを編集してgit pushする
+26. `kubectl argo rollouts get rollout guestbook-ui --namespace default --watch`
