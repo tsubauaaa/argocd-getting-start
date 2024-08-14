@@ -35,4 +35,4 @@
 ### canary release
 25. アプリのマニフェストのimageを編集してgit pushする
 26. `kubectl argo rollouts get rollout guestbook-ui --namespace default --watch` でカナリアリリースの進行状況を監視する
-27. 
+27. アプリのマニフェストのstrategyにpauseがあればpauseごと `kubectl argo rollouts promote guestbook-ui -n default` でpromoteしていく。`pause: { duration: 10s }` の場合には、10秒まってpromoteされる。

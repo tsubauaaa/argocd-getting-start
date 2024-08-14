@@ -25,9 +25,9 @@ spec:
     canary:                        # Changed from rollingUpdate or recreate
       steps:
         - setWeight: 25
-        - pause: {}
+        - pause: { duration: 10s }
         - setWeight: 50
-        - pause: {}
+        - pause: { duration: 10s }
         - setWeight: 75
-        - pause: {}
+        - pause: { duration: 10s }
         - setWeight: 100
