@@ -32,3 +32,4 @@
 23. argocd管理画面からpruneありのsyncを行う
 24. http://localhost:3100/rollouts にアクセスしてargo rollouts管理画面を表示する
 
+### canary release
