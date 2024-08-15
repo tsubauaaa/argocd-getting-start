@@ -22,12 +22,20 @@ spec:
         ports:
         - containerPort: 80
   strategy:
-    canary:                        # Changed from rollingUpdate or recreate
+    canary: 
+      trafficRouting:
+        istio:
+          virtualService:
+            name: guestbook-ui
+            routes:
+              - primary
+              - canary
       maxSurge: 100%                # 新バージョンのPod数を旧バージョンのPod数に追加（最大で倍のPod数が稼働）
       maxUnavailable: 0             # 旧バージョンのPod数は減らさない
       steps:
         - setWeight: 25
         - pause: { duration: 10s }
+
         - setWeight: 50
         - pause: { duration: 10s }
         - setWeight: 75
