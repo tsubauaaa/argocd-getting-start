@@ -32,8 +32,6 @@ spec:
               - canary
       maxSurge: 100%                # 新バージョンのPod数を旧バージョンのPod数に追加（最大で倍のPod数が稼働）
       maxUnavailable: 0             # 旧バージョンのPod数は減らさない
-      canaryService: guestbook-ui
-      stableService: guestbook-ui-stable
       steps:
         - setWeight: 25
         - pause: { duration: 10s }
@@ -43,4 +41,4 @@ spec:
         - pause: { duration: 10s }
         - setWeight: 100
         - setCanaryScale:
-            weight: 100
+            replicas: 4
