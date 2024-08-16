@@ -14,10 +14,12 @@ spec:
         app: guestbook-ui
     spec:
       containers:
-      - image: argoproj/rollouts-demo:blue
-        name: guestbook-ui
-        ports:
-        - containerPort: 8080
+        - name: guestbook-ui
+          image: argoproj/rollouts-demo:blue
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
   strategy:
     canary:
       canaryService: guestbook-ui-canary
