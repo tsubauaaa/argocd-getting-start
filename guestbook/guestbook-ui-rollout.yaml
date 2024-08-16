@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: guestbook-ui
-          image: argoproj/rollouts-demo:blue
+          image: argoproj/rollouts-demo:red
           ports:
             - name: http
               containerPort: 8080
