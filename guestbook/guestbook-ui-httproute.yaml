@@ -8,7 +8,7 @@ spec:
       namespace: default
   rules:
     - backendRefs:
-        - name: guestbook-ui-gateway-stable
+        - name: guestbook-ui-stable
           port: 80
-        - name: guestbook-ui-gateway-canary
+        - name: guestbook-ui-canary
           port: 80
