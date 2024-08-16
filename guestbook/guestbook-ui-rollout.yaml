@@ -3,7 +3,7 @@ kind: Rollout                     # Changed from Deployment
 metadata:
   name: guestbook-ui
 spec:
-  replicas: 5
+  replicas: 4
   revisionHistoryLimit: 2
   selector:
     matchLabels:
@@ -14,19 +14,19 @@ spec:
         app: guestbook-ui
     spec:
       containers:
-      - image: argoproj/rollouts-demo:red
+      - image: argoproj/rollouts-demo:blue
         name: guestbook-ui
         ports:
-        - containerPort: 80
+        - containerPort: 8080
   strategy:
     canary:
-      # canaryService: guestbook-ui-canary
-      # stableService: guestbook-ui-stable
-      # trafficRouting:
-      #   plugins:
-      #     argoproj-labs/gatewayAPI:
-      #       httpRoute: guestbook-ui-httproute # our created httproute
-      #       namespace: default # namespace where this rollout resides
+      canaryService: guestbook-ui-canary
+      stableService: guestbook-ui-stable
+      trafficRouting:
+        plugins:
+          argoproj-labs/gatewayAPI:
+            httpRoute: guestbook-ui-httproute # our created httproute
+            namespace: default # namespace where this rollout resides
       steps:
         - setWeight: 25
         - pause: { duration: 10s }
