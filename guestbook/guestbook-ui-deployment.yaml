@@ -31,7 +31,6 @@ spec:
         - setWeight: 75
         - pause: { duration: 10s }
         - setWeight: 100
-        - setCanaryScale:
-            replicas: 4
+      minPodsPerReplicaSet: 4 
       maxSurge: 100%                # 新バージョンのPod数を旧バージョンのPod数に追加（最大で倍のPod数が稼働）
       maxUnavailable: 0             # 旧バージョンのPod数は減らさない
