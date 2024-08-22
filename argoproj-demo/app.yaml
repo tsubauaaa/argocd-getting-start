@@ -29,6 +29,9 @@ spec:
       containers:
         - name: argoproj-demo
           image: argoproj/rollouts-demo:blue
+          ports:
+            - containerPort: 8080
+              name: web
           livenessProbe:
             httpGet:
               path: /
