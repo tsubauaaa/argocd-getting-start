@@ -32,7 +32,7 @@ spec:
         value: /
     backendRefs:
     - name: argoproj-demo
-      port: 8080
+      port: 80
   # - matches:
   #   - path:
   #       value: /healthz
