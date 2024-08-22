@@ -8,8 +8,8 @@ spec:
     app: argoproj-demo
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 8080
+      port: 8080
+      name: web
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -28,7 +28,7 @@ spec:
       serviceAccountName: tsubauaaa-dev
       containers:
         - name: argoproj-demo
-          image: argoproj/rollouts-demo:blue
+          image: argoproj/rollouts-demo:green
           ports:
             - containerPort: 8080
               name: web
