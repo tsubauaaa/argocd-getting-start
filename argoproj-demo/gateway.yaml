@@ -1,0 +1,80 @@
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: Gateway
+metadata:
+  name: tsubauaaa-external-dev
+  namespace: default
+  annotations:
+    networking.gke.io/certmap: tsubauaaa-dev
+spec:
+  gatewayClassName: gke-l7-global-external-managed
+  listeners:
+  - name: https
+    protocol: HTTPS
+    port: 443
+  addresses:
+  - type: NamedAddress
+    value: tsubauaaa-dev
+---
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: HTTPRoute
+metadata:
+  name: tsubauaaa-dev
+  namespace: default
+spec:
+  parentRefs:
+  - kind: Gateway
+    name: tsubauaaa-external-dev
+  hostnames:
+  - "tsubauaaa.info"
+  rules:
+  - matches:
+    - path:
+        value: /
+    backendRefs:
+    - name: argoproj-demo
+      port: 80
+  - matches:
+    - path:
+        value: /healthz
+    backendRefs:
+    - name: argoproj-demo
+      port: 80
+---
+apiVersion: networking.gke.io/v1
+kind: HealthCheckPolicy
+metadata:
+  name: tsubauaaa-dev
+  namespace: default
+spec:
+  default:
+    checkIntervalSec: 15
+    timeoutSec: 15
+    healthyThreshold: 1
+    unhealthyThreshold: 2
+    logConfig:
+      enabled: true
+    config:
+      type: HTTP
+      httpHealthCheck:
+        port: 8080
+        requestPath: /healthz
+  targetRef:
+    group: ""
+    kind: Service
+    name: argoproj-demo
+---
+apiVersion: networking.gke.io/v1
+kind: GCPBackendPolicy
+metadata:
+  name: tsubauaaa-dev
+  namespace: default
+spec:
+  default:
+    securityPolicy: tsubauaaa-dev
+    timeoutSec: 1
+    logging:
+      enabled: false
+  targetRef:
+    group: ""
+    kind: Service
+    name: argoproj-demo
