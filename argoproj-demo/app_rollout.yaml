@@ -19,7 +19,7 @@ spec:
   selector:
     matchLabels:
       app: argoproj-demo
-  replicas: 2
+  replicas: 4
   template:
     metadata:
       labels:
@@ -28,7 +28,7 @@ spec:
       serviceAccountName: tsubauaaa-dev
       containers:
         - name: argoproj-demo
-          image: argoproj/rollouts-demo:blue
+          image: argoproj/rollouts-demo:green
           ports:
             - containerPort: 8080
           livenessProbe:
