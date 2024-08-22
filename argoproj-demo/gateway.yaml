@@ -33,12 +33,6 @@ spec:
     backendRefs:
     - name: argoproj-demo
       port: 80
-  # - matches:
-  #   - path:
-  #       value: /healthz
-  #   backendRefs:
-  #   - name: argoproj-demo
-  #     port: 80
 ---
 apiVersion: networking.gke.io/v1
 kind: HealthCheckPolicy
