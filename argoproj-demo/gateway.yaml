@@ -29,7 +29,7 @@ spec:
   rules:
   - matches:
     - path:
-        value: /
+        value: /app
     backendRefs:
     - name: argoproj-demo
       port: 80
