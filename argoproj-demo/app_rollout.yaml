@@ -67,11 +67,11 @@ spec:
     canary:
       canaryService: argoproj-demo-canary
       stableService: argoproj-demo-stable
-      trafficRouting:
-        plugins:
-          argoproj-labs/gatewayAPI:
-            httpRoute: tsubauaaa-dev
-            namespace: default
+      # trafficRouting:
+      #   plugins:
+      #     argoproj-labs/gatewayAPI:
+      #       httpRoute: tsubauaaa-dev
+      #       namespace: default
       steps:
         - setWeight: 50
         - pause: {}
