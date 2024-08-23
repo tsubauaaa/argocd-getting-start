@@ -65,8 +65,8 @@ spec:
               cpu: 100m
   strategy:
     canary:
-      # canaryService: argoproj-demo-canary
-      # stableService: argoproj-demo-stable
+      canaryService: argoproj-demo-canary
+      stableService: argoproj-demo-stable
       # trafficRouting:
       #   plugins:
       #     argoproj-labs/gatewayAPI:
