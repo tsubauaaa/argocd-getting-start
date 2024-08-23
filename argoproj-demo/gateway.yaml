@@ -85,7 +85,7 @@ spec:
 apiVersion: networking.gke.io/v1
 kind: GCPBackendPolicy
 metadata:
-  name: tsubauaaa-dev
+  name: tsubauaaa-dev-stable
   namespace: default
 spec:
   default:
@@ -96,4 +96,20 @@ spec:
   targetRef:
     group: ""
     kind: Service
-    name: argoproj-demo
+    name: argoproj-demo-stable
+---
+apiVersion: networking.gke.io/v1
+kind: GCPBackendPolicy
+metadata:
+  name: tsubauaaa-dev-canary
+  namespace: default
+spec:
+  default:
+    securityPolicy: tsubauaaa-dev
+    timeoutSec: 1
+    logging:
+      enabled: false
+  targetRef:
+    group: ""
+    kind: Service
+    name: argoproj-demo-canary
