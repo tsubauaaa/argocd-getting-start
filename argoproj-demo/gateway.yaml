@@ -31,7 +31,9 @@ spec:
     - path:
         value: /
     backendRefs:
-    - name: argoproj-demo
+    - name: argoproj-demo-stable
+      port: 80
+    - name: argoproj-demo-canary
       port: 80
 ---
 apiVersion: networking.gke.io/v1

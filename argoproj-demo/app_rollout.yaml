@@ -1,7 +1,20 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: argoproj-demo
+  name: argoproj-demo-stable
+spec:
+  type: ClusterIP
+  selector:
+    app: argoproj-demo
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: argoproj-demo-canary
 spec:
   type: ClusterIP
   selector:
@@ -28,7 +41,7 @@ spec:
       serviceAccountName: tsubauaaa-dev
       containers:
         - name: argoproj-demo
-          image: argoproj/rollouts-demo:blue
+          image: argoproj/rollouts-demo:green
           ports:
             - containerPort: 8080
           livenessProbe:
@@ -52,6 +65,12 @@ spec:
               cpu: 100m
   strategy:
     canary:
+      canaryService: argoproj-demo-canary
+      stableService: argoproj-demo-stable
+      trafficRouting:
+        plugins:
+          httpRoute: tsubauaaa-dev
+          namespace: default
       steps:
         - setWeight: 50
         - pause: {}
