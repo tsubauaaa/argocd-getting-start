@@ -39,7 +39,7 @@ spec:
 apiVersion: networking.gke.io/v1
 kind: HealthCheckPolicy
 metadata:
-  name: tsubauaaa-dev
+  name: tsubauaaa-dev-stable
   namespace: default
 spec:
   default:
@@ -57,7 +57,30 @@ spec:
   targetRef:
     group: ""
     kind: Service
-    name: argoproj-demo
+    name: argoproj-demo-stable
+---
+apiVersion: networking.gke.io/v1
+kind: HealthCheckPolicy
+metadata:
+  name: tsubauaaa-dev-canary
+  namespace: default
+spec:
+  default:
+    checkIntervalSec: 15
+    timeoutSec: 15
+    healthyThreshold: 1
+    unhealthyThreshold: 2
+    logConfig:
+      enabled: true
+    config:
+      type: HTTP
+      httpHealthCheck:
+        port: 8080
+        requestPath: /
+  targetRef:
+    group: ""
+    kind: Service
+    name: argoproj-demo-canary
 ---
 apiVersion: networking.gke.io/v1
 kind: GCPBackendPolicy
