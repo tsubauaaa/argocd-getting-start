@@ -77,13 +77,14 @@ spec:
                 useHeaderRoutes: true
             namespace: default
       steps:
-        - setWeight: 50
         - setHeaderRoute:
             name: "set-header-1"
             match:
               - headerName: X-Canary
                 headerValue:
                   exact: "true"
+        - pause: {}
+        - setWeight: 50
         - pause: {}
         - setWeight: 100
         - pause: {}
