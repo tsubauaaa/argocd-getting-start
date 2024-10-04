@@ -41,7 +41,7 @@ spec:
       serviceAccountName: tsubauaaa-dev
       containers:
         - name: argoproj-demo
-          image: argoproj/rollouts-demo:green
+          image: argoproj/rollouts-demo:blue
           ports:
             - containerPort: 8080
           livenessProbe:
@@ -77,7 +77,8 @@ spec:
                 useHeaderRoutes: true
             namespace: default
       steps:
-        - setWeight: 0
+        - setCanaryScale:
+          replicas: 1
         - setHeaderRoute:
             name: "set-header-1"
             match:
