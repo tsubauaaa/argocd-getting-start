@@ -77,6 +77,7 @@ spec:
                 useHeaderRoutes: true
             namespace: default
       steps:
+        - setWeight: 0
         - setHeaderRoute:
             name: "set-header-1"
             match:
