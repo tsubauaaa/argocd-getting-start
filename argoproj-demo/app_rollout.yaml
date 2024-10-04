@@ -86,6 +86,8 @@ spec:
                 headerValue:
                   exact: "true"
         - pause: {}
+        - setCanaryScale:
+            matchTrafficWeight: true 
         - setWeight: 50
         - pause: {}
         - setWeight: 100
