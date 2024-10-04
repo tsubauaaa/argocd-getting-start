@@ -78,7 +78,7 @@ spec:
             namespace: default
       steps:
         - setCanaryScale:
-          replicas: 1
+            replicas: 1
         - setHeaderRoute:
             name: "set-header-1"
             match:
