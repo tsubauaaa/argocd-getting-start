@@ -31,10 +31,9 @@ spec:
   - matches:
     - path:
         value: /
-    - headers:
-        values:
-          - name: X-Canary
-            value: "true"
+      headers:
+      - name: X-Canary
+        value: "true"
     backendRefs:
     - name: argoproj-demo-canary
       port: 80
