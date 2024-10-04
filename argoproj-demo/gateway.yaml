@@ -33,7 +33,8 @@ spec:
         value: /
     - headers:
         values:
-          X-Canary: "true"
+          - name: X-Canary
+            value: "true"
     backendRefs:
     - name: argoproj-demo-canary
       port: 80
