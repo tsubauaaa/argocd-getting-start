@@ -41,7 +41,7 @@ spec:
       serviceAccountName: tsubauaaa-dev
       containers:
         - name: argoproj-demo
-          image: argoproj/rollouts-demo:green
+          image: argoproj/rollouts-demo:red
           ports:
             - containerPort: 8080
           livenessProbe:
