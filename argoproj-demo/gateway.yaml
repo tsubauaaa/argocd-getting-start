@@ -89,7 +89,7 @@ metadata:
   namespace: default
 spec:
   default:
-    securityPolicy: tsubauaaa-dev
+    # securityPolicy: tsubauaaa-dev
     timeoutSec: 1
     logging:
       enabled: false
@@ -105,7 +105,7 @@ metadata:
   namespace: default
 spec:
   default:
-    securityPolicy: tsubauaaa-dev
+    # securityPolicy: tsubauaaa-dev
     timeoutSec: 1
     logging:
       enabled: false
