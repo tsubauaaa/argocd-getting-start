@@ -38,8 +38,8 @@ spec:
     metadata:
       labels:
         app: argoproj-demo
-      # annotations:
-      #   sidecar.istio.io/inject: "true"
+      annotations:
+        sidecar.istio.io/inject: "true"
     spec:
       topologySpreadConstraints:
       - maxSkew: 1
