@@ -60,7 +60,7 @@ spec:
       serviceAccountName: tsubauaaa-dev
       containers:
         - name: argoproj-demo
-          image: argoproj/rollouts-demo:green
+          image: argoproj/rollouts-demo:blue
           resources:
             requests:
               memory: "84Mi"
