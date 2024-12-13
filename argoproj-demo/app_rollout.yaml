@@ -41,7 +41,6 @@ spec:
       annotations:
         sidecar.istio.io/inject: "true"
         # sidecar.istio.io/logLevel: error
-        sidecar.istio.io/agentLogLevel: error
         sidecar.istio.io/componentLogLevel: error
     spec:
       topologySpreadConstraints:
