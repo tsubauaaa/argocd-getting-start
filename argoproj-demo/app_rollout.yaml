@@ -33,7 +33,7 @@ spec:
     matchLabels:
       app: argoproj-demo
   revisionHistoryLimit: 3
-  replicas: 4
+  replicas: 1
   template:
     metadata:
       labels:
