@@ -39,7 +39,7 @@ spec:
       labels:
         app: argoproj-demo
       annotations:
-        # sidecar.istio.io/inject: "true"
+        sidecar.istio.io/inject: "true"
         # sidecar.istio.io/agentLogLevel: error
     spec:
       topologySpreadConstraints:
