@@ -40,7 +40,10 @@ spec:
         app: argoproj-demo
       annotations:
         sidecar.istio.io/inject: "true"
-        # sidecar.istio.io/agentLogLevel: error
+        proxy.istio.io/config: |-
+          proxyStatsMatcher:
+            inclusionRegexps:
+            - ".*http_local_rate_limit.*"
     spec:
       topologySpreadConstraints:
       - maxSkew: 1
