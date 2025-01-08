@@ -39,7 +39,7 @@ spec:
       labels:
         app: argoproj-demo
       annotations:
-        sidecar.istio.io/inject: "false"
+        sidecar.istio.io/inject: "true"
         proxy.istio.io/config: |-
           proxyStatsMatcher:
             inclusionRegexps:
