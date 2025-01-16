@@ -50,10 +50,11 @@ spec:
     logConfig:
       enabled: true
     config:
-      type: HTTP
+      # type: HTTP
+      type: TCP
       httpHealthCheck:
         port: 8080
-        requestPath: /
+        # requestPath: /
   targetRef:
     group: ""
     kind: Service
@@ -73,10 +74,11 @@ spec:
     logConfig:
       enabled: true
     config:
-      type: HTTP
+      # type: HTTP
+      type: TCP
       httpHealthCheck:
         port: 8080
-        requestPath: /
+        # requestPath: /
   targetRef:
     group: ""
     kind: Service
