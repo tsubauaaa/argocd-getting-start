@@ -44,6 +44,7 @@ spec:
           proxyStatsMatcher:
             inclusionRegexps:
             - ".*http_local_rate_limit.*"
+          proxyLogLevel: debug
     spec:
       topologySpreadConstraints:
       - maxSkew: 1
