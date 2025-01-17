@@ -46,7 +46,7 @@ spec:
     checkIntervalSec: 15
     timeoutSec: 15
     healthyThreshold: 1
-    unhealthyThreshold: 10
+    unhealthyThreshold: 2
     logConfig:
       enabled: true
     config:
@@ -69,7 +69,7 @@ spec:
     checkIntervalSec: 15
     timeoutSec: 15
     healthyThreshold: 1
-    unhealthyThreshold: 10
+    unhealthyThreshold: 2
     logConfig:
       enabled: true
     config:
