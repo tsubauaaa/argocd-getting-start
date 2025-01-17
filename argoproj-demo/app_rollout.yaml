@@ -40,7 +40,7 @@ spec:
         app: argoproj-demo
       annotations:
         sidecar.istio.io/inject: "true"
-        sidecar.istio.io/logLevel: debug
+        sidecar.istio.io/logLevel: "info"
         proxy.istio.io/config: |-
           proxyStatsMatcher:
             inclusionRegexps:
