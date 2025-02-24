@@ -38,13 +38,13 @@ spec:
     metadata:
       labels:
         app: argoproj-demo
-      # annotations:
-      #   sidecar.istio.io/inject: "true"
-      #   sidecar.istio.io/logLevel: "info"
-      #   proxy.istio.io/config: |-
-      #     proxyStatsMatcher:
-      #       inclusionRegexps:
-      #       - ".*http_local_rate_limit.*"
+      annotations:
+        sidecar.istio.io/inject: "true"
+        sidecar.istio.io/logLevel: "info"
+        proxy.istio.io/config: |-
+          proxyStatsMatcher:
+            inclusionRegexps:
+            - ".*http_local_rate_limit.*"
     spec:
       topologySpreadConstraints:
       - maxSkew: 1
